@@ -1,5 +1,6 @@
-<div class="input-group mb-3">
-    <input [(ngModel)]="newHabit" class="form-control" placeholder="Add a new habit">
-    <button class="btn btn-primary" (click)="addHabit()">Add</button>
-  </div>
-  
+<input
+  type="text"
+  class="form-control"
+  placeholder="New habit"
+  [(ngModel)]="newHabitName" />
+<button class="btn btn-primary mt-2" (click)="addHabit()">Add</button>

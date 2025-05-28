@@ -1,1 +1,10 @@
-<p>habit-item works!</p>
+<div class="card mb-2">
+    <div class="card-body">
+      <h5 class="card-title">{{ habit.name }}</h5>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" [checked]="isCompletedToday()" (change)="toggleHabit()">
+        <label class="form-check-label">Completed Today</label>
+      </div>
+      <p class="mt-2">Progress: {{ getProgress() }}%</p>
+    </div>
+  </div>

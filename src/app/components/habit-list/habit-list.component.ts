@@ -1,17 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { HabitService } from '../../services/habit.service';
-import { Habit } from '../../models/habit.model';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HabitItemComponent } from '../habit-item/habit-item.component';
 
 @Component({
   selector: 'app-habit-list',
+  standalone: true,
+  imports: [CommonModule, HabitItemComponent],
   templateUrl: './habit-list.component.html'
 })
-export class HabitListComponent implements OnInit {
-  habits: Habit[] = [];
+export class HabitListComponent {
+  habits = [
+    { name: 'picie wody', completed: false },
+    { name: 'Cwieczenie', completed: true }
+  ];
 
-  constructor(private habitService: HabitService) {}
-
-  ngOnInit() {
-    this.habits = this.habitService.getHabits();
+  
+    onHabitAdded(habitName: string) {
+      this.habits.push({
+        name: habitName,
+        completed: false,
+      });
+    }
   }
-}
+

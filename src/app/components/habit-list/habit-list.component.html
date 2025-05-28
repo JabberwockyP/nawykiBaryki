@@ -1,4 +1,3 @@
-<app-habit-item
-  *ngFor="let habit of habits"
-  [habit]="habit">
-</app-habit-item>
+<div *ngFor="let habit of habits">
+  <app-habit-item [habit]="habit"></app-habit-item>
+</div>

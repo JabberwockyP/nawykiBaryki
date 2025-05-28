@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { HabitFormComponent } from './components/habit-form/habit-form.component';
+import { HabitListComponent } from './components/habit-list/habit-list.component';
 
 @Component({
   selector: 'app-root',
-  imports: [],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [HabitFormComponent, HabitListComponent],
+  templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = 'habit-tracker';
-}
+export class AppComponent {}

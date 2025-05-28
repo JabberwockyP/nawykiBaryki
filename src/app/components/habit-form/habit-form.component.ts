@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
-import { HabitService } from '../../services/habit.service';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-habit-form',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './habit-form.component.html'
 })
 export class HabitFormComponent {
-  newHabit = '';
-
-  constructor(private habitService: HabitService) {}
+  newHabitName: string = '';
+  @Output() habitAdded = new EventEmitter<string>();
 
   addHabit() {
-    this.habitService.addHabit(this.newHabit);
-    this.newHabit = '';
+    if (this.newHabitName.trim()) {
+      this.habitAdded.emit(this.newHabitName.trim());
+      this.newHabitName = '';
+    }
   }
 }
+
