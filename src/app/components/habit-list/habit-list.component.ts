@@ -22,5 +22,9 @@ export class HabitListComponent {
         completed: false,
       });
     }
+
+    deleteHabit(index: number) {
+      this.habits.splice(index, 1);
+    }
   }
 

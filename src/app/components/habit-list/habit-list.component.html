@@ -2,6 +2,9 @@
 <app-habit-form (habitAdded)="onHabitAdded($event)"></app-habit-form>
 
 <!-- Habit List -->
-<div *ngFor="let habit of habits">
-  <app-habit-item [habit]="habit"></app-habit-item>
+<div *ngFor="let habit of habits; let i = index">
+  <app-habit-item
+    [habit]="habit"
+    (delete)="deleteHabit(i)"
+  ></app-habit-item>
 </div>

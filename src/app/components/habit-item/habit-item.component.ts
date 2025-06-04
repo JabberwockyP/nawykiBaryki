@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 export class HabitItemComponent {
   @Input() habit: any;
   @Output() habitChanged = new EventEmitter<void>();
+  @Output() delete = new EventEmitter<void>();
 
   toggleHabit() {
     this.habit.completed = !this.habit.completed;
@@ -22,5 +23,9 @@ export class HabitItemComponent {
 
   getProgress(): number {
     return this.habit.completed ? 100 : 0;
+  }
+
+  onDeleteClick() {
+    this.delete.emit();
   }
 }
